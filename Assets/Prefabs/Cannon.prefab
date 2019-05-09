@@ -291,8 +291,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8520664498729833903}
   shotPlayer: {fileID: 8520664498729833903}
-  speed: 2
+  speed: 1
   coolDownTime: 1
+  stuff: {fileID: 3535295983145705486, guid: 6b70d545eefdc844ea30d485aa5ee321, type: 3}
 --- !u!1 &8520664500336652969
 GameObject:
   m_ObjectHideFlags: 0

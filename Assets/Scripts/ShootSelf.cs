@@ -11,6 +11,9 @@ public class ShootSelf : MonoBehaviour
     bool isInstanciated;
     public float coolDownTime;
     private float nextFiretime;
+    public List<GameObject> players;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,11 +50,27 @@ public class ShootSelf : MonoBehaviour
             {
                 nextFiretime = Time.time + coolDownTime;
                 player = Instantiate(shotPlayer, new Vector2(playerPos.x, playerPos.y), q);
+                players.Add(player);
+                if (isInstanciated) {
+                    foreach (GameObject player in players) {
+                        this.enabled = false;
+
+                    }
+                }
             }
             else if (nextFiretime < Time.time)
             {
                 nextFiretime = Time.time + coolDownTime;
                 player = Instantiate(shotPlayer, new Vector2(playerPos.x, playerPos.y), q);
+                players.Add(player);
+                if (isInstanciated)
+                {
+                    foreach (GameObject player in players)
+                    {
+                        this.enabled = false;
+
+                    }
+                }
             }
             bulletCreated = true;
         }
