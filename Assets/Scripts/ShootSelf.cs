@@ -40,17 +40,6 @@ public class ShootSelf : MonoBehaviour
 
 
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("hit" + other.name);
-        if (other.name == "Wall") {
-           
-                SceneManager.LoadScene("Level1");
-            
-        }
-    }
-
-
 
     public bool shoot()
     {
