@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShootSelf : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class ShootSelf : MonoBehaviour
     public GameObject player;
     public GameObject shotPlayer;
     public int speed;
-    bool isInstanciated;
+    public bool isInstanciated;
     public float coolDownTime;
     private float nextFiretime;
     public List<GameObject> players;
@@ -18,7 +19,7 @@ public class ShootSelf : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+     
     }
 
     // Update is called once per frame
@@ -36,6 +37,21 @@ public class ShootSelf : MonoBehaviour
 
         fire();
     }
+
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("hit" + other.name);
+        if (other.name == "Wall") {
+           
+                SceneManager.LoadScene("Level1");
+            
+        }
+    }
+
+
+
     public bool shoot()
     {
 
@@ -55,6 +71,7 @@ public class ShootSelf : MonoBehaviour
                     foreach (GameObject player in players) {
                         this.enabled = false;
 
+
                     }
                 }
             }
@@ -67,7 +84,9 @@ public class ShootSelf : MonoBehaviour
                 {
                     foreach (GameObject player in players)
                     {
-                        this.enabled = false;
+                        //if (!this.gameObject.CompareTag("StartCannon"))
+                            this.enabled = false;
+                     
 
                     }
                 }
@@ -93,4 +112,5 @@ public class ShootSelf : MonoBehaviour
         yield return new WaitUntil(() => shoot());
 
     }
+
 }

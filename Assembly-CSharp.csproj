@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\LoadLevel.cs" />
     <Compile Include="Assets\Scripts\PlayerRotation.cs" />
     <Compile Include="Assets\Scripts\ShootSelf.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
